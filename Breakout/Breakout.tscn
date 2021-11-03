@@ -1,0 +1,1896 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://preview.png" type="Texture" id=1]
+[ext_resource path="res://Paddle.gd" type="Script" id=2]
+[ext_resource path="res://Ball.gd" type="Script" id=4]
+
+[node name="Breakout" type="Node2D"]
+
+[node name="Paddle" type="KinematicBody2D" parent="."]
+position = Vector2( 496, 544 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PaddleCollision" type="CollisionPolygon2D" parent="Paddle"]
+polygon = PoolVector2Array( -32.2707, -1.25867, 56.8299, -1.25867, 62.5029, 2.41211, 64.5052, 7.41779, 64.8389, 15.0931, 57.1636, 22.101, -29.9347, 22.4347, -38.2775, 15.0931, -38.6111, 7.75146, -36.2752, 3.07953 )
+
+[node name="PaddleImage" type="Sprite" parent="Paddle"]
+texture = ExtResource( 1 )
+hframes = 6
+vframes = 9
+frame = 45
+
+[node name="Void" type="StaticBody2D" parent="."]
+position = Vector2( 512, 752 )
+scale = Vector2( 16, 4.5625 )
+
+[node name="VoidCollision" type="CollisionPolygon2D" parent="Void"]
+position = Vector2( 0, 0.206894 )
+polygon = PoolVector2Array( -32, -33.3151, 32, -33.3151, 32, -22.4438, 32, -19.2877, -32, -19.2877 )
+
+[node name="Ball" type="KinematicBody2D" parent="."]
+position = Vector2( 460.579, 470.569 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BallImage" type="Sprite" parent="Ball"]
+position = Vector2( 52.2504, -18.7479 )
+texture = ExtResource( 1 )
+flip_h = true
+hframes = 22
+vframes = 11
+frame = 203
+
+[node name="BallCollision" type="CollisionPolygon2D" parent="Ball"]
+position = Vector2( 36.2504, -2.74792 )
+polygon = PoolVector2Array( -2.07886, -8.63477, 3.35089, -14.7267, 6.39685, -15.7862, 12.886, -15.7862, 15.932, -14.3294, 20.0374, -9.69424, 20.1699, -1.08612, 15.4023, 4.74094, 13.6807, 5.66797, 4.14545, 5.66797, -0.224792, 1.82742, -1.94641, -1.21854 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( 512, -112 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="WallCollision" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( -512, 712, -512, 112, 512, 112, 512, 712, 576, 712, 576, 48, -576, 48, -576, 712 )
+
+[node name="Background" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -1.0
+margin_top = -1.5
+margin_right = 1025.0
+margin_bottom = 601.5
+color = Color( 0.415686, 0.686275, 0.682353, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PurpleBricks" type="Node" parent="."]
+
+[node name="Brick" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 992.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick"]
+position = Vector2( 0, 0.0199487 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick2" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 934.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick2"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick2"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick3" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 876.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick3"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick3"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick4" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 818.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick4"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick4"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick5" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 760.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick5"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick5"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick6" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 702.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick6"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick6"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick7" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 644.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick7"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick7"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick8" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 586.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick8"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick8"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick9" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 528.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick9"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick9"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick10" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 470.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick10"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick10"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick11" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 412.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick11"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick11"]
+position = Vector2( 0, 0.0222853 )
+scale = Vector2( 1, 0.944287 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick12" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 354.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick12"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick12"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick13" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 296.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick13"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick13"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick14" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 238.33, 55.3356 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick14"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick14"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick15" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 180.33, 55.3359 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick15"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick15"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick16" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 122.33, 55.3359 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick16"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick16"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick17" type="StaticBody2D" parent="PurpleBricks"]
+position = Vector2( 64.3304, 55.3359 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="PurpleBricks/Brick17"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="PurpleBricks/Brick17"]
+position = Vector2( 0, 0.0184142 )
+scale = Vector2( 1, 0.953964 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="RedBricks" type="Node" parent="."]
+
+[node name="Brick" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 992.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick2" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 934.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick2"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick2"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick3" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 876.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick3"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick3"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick4" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 818.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick4"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick4"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick5" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 760.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick5"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick5"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick6" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 702.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick6"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick6"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick7" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 644.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick7"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick7"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick8" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 586.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick8"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick8"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick9" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 528.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick9"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick9"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick10" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 470.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick10"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick10"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick11" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 412.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick11"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick11"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick12" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 354.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick12"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick12"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick13" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 296.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick13"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick13"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick14" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 238.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick14"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick14"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick15" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 180.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick15"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick15"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick16" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 122.33, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick16"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick16"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick17" type="StaticBody2D" parent="RedBricks"]
+position = Vector2( 64.3304, 107.336 )
+scale = Vector2( 0.9, 0.9 )
+z_index = 613
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="RedBricks/Brick17"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 18
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="RedBricks/Brick17"]
+position = Vector2( 0.182617, -26.9819 )
+scale = Vector2( 1, 0.950128 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="YellowBricks" type="Node" parent="."]
+
+[node name="Brick" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 992.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick2" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 934.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick2"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick2"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick3" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 876.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick3"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick3"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick4" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 818.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick4"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick4"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick5" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 760.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick5"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick5"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick6" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 702.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick6"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick6"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick7" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 644.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick7"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick7"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick8" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 586.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick8"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick8"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick9" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 528.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick9"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick9"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick10" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 470.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick10"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick10"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick11" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 412.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick11"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick11"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick12" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 354.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick12"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick12"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick13" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 296.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick13"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick13"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick14" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 238.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick14"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick14"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick15" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 180.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick15"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick15"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick16" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 122.33, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick16"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick16"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick17" type="StaticBody2D" parent="YellowBricks"]
+position = Vector2( 64.3304, 131.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="YellowBricks/Brick17"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 26
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="YellowBricks/Brick17"]
+position = Vector2( -0.234711, -23.5816 )
+scale = Vector2( 0.993599, 0.970612 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="GreenBricks" type="Node" parent="."]
+
+[node name="Brick" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 992.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick2" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 934.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick2"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick2"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick3" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 876.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick3"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick3"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick4" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 818.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick4"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick4"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick5" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 760.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick5"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick5"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick6" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 702.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick6"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick6"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick7" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 644.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick7"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick7"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick8" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 586.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick8"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick8"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick9" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 528.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick9"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick9"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick10" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 470.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick10"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick10"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick11" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 412.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick11"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick11"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick12" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 354.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick12"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick12"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick13" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 296.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick13"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick13"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick14" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 238.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick14"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick14"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick15" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 180.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick15"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick15"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick16" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 122.33, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick16"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick16"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick17" type="StaticBody2D" parent="GreenBricks"]
+position = Vector2( 64.3304, 156.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="GreenBricks/Brick17"]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 10
+frame = 34
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="GreenBricks/Brick17"]
+position = Vector2( -0.234711, -19.8071 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="BlueBricks" type="Node" parent="."]
+
+[node name="Brick" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 979.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick2" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 921.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick2"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick2"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick3" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 863.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick3"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick3"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick4" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 805.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick4"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick4"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick5" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 747.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick5"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick5"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick6" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 689.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick6"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick6"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick7" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 631.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick7"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick7"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick8" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 573.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick8"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick8"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick9" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 515.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick9"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick9"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick10" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 457.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick10"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick10"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick11" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 399.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick11"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick11"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick12" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 341.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick12"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick12"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick13" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 283.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick13"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick13"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick14" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 225.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick14"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick14"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick15" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 167.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick15"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick15"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick16" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 109.33, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick16"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick16"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick17" type="StaticBody2D" parent="BlueBricks"]
+position = Vector2( 51.3304, 189.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="BlueBricks/Brick17"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.521, 256.748, 64.8087, 32.1953 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="BlueBricks/Brick17"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="WhiteBricks" type="Node" parent="."]
+
+[node name="Brick" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 979.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick2" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 921.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick2"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick2"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick3" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 863.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick3"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick3"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick4" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 805.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick4"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick4"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick5" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 747.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick5"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick5"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick6" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 689.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick6"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick6"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick7" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 631.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick7"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick7"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick8" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 573.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick8"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick8"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick9" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 515.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick9"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick9"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick10" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 457.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick10"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick10"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick11" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 399.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick11"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick11"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick12" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 341.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick12"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick12"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick13" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 283.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick13"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick13"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick14" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 225.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick14"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick14"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick15" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 167.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick15"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick15"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick16" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 109.33, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick16"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick16"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
+
+[node name="Brick17" type="StaticBody2D" parent="WhiteBricks"]
+position = Vector2( 51.3304, 218.336 )
+scale = Vector2( 0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickImage" type="Sprite" parent="WhiteBricks/Brick17"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 485.939, 308.415, 64.169, 33.3392 )
+
+[node name="BrickCollision" type="CollisionPolygon2D" parent="WhiteBricks/Brick17"]
+position = Vector2( 13.6238, -24.7566 )
+scale = Vector2( 0.993599, 0.988718 )
+polygon = PoolVector2Array( -46, 10, 18, 10, 18, 42, -46, 42 )
