@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -9,7 +8,8 @@ var velocity = Vector2.ZERO
 var started = false
 var ball_x_pos = 460.5
 var ball_y_pos = 470.5
-
+var totalHits = 84
+var counter = 0
 # Called when the node enters the scene tree for the first time.
 #func _ready():
 
@@ -22,12 +22,19 @@ func _process(delta):
 		started = true
 		
 	var collided = move_and_collide(velocity * delta)
+	
 	if collided:
 		velocity = velocity.bounce(collided.normal);
 		if collided.collider.name.begins_with("Brick"):
-			collided.collider.free()
+			$Hit.play()
+			var tile = $"../Bricks".world_to_map(collided.position)
+			$"../Bricks".set_cell(tile.x,tile.y,-1)
+			counter += 1
 		elif collided.collider.name.begins_with("Void"):
+			$Void.play()
 			velocity = Vector2.ZERO
 			started = false
 			position = Vector2(ball_x_pos,ball_y_pos)
 			$"../Paddle".position = Vector2(496,544)
+		if counter == totalHits:
+			velocity = Vector2.ZERO
