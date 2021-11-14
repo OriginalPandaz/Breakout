@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Breakout"
-run/main_scene="res://Breakout.tscn"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1048
 
 [input]
 

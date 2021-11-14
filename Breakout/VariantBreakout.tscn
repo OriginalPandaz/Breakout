@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Void.wav" type="AudioStream" id=1]
+[ext_resource path="res://preview.png" type="Texture" id=2]
+[ext_resource path="res://Hit.wav" type="AudioStream" id=3]
+[ext_resource path="res://Ball.gd" type="Script" id=4]
+[ext_resource path="res://Paddle.gd" type="Script" id=5]
+
+[node name="VariantBreakout" type="Node2D"]
+
+[node name="Paddle" type="KinematicBody2D" parent="."]
+position = Vector2( 496, 544 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PaddleCollision" type="CollisionPolygon2D" parent="Paddle"]
+polygon = PoolVector2Array( -32.2707, -1.25867, 56.8299, -1.25867, 62.5029, 2.41211, 64.5052, 7.41779, 64.8389, 15.0931, 57.1636, 22.101, -29.9347, 22.4347, -38.2775, 15.0931, -38.6111, 7.75146, -36.2752, 3.07953 )
+
+[node name="PaddleImage" type="Sprite" parent="Paddle"]
+texture = ExtResource( 2 )
+hframes = 6
+vframes = 9
+frame = 45
+
+[node name="Ball" type="KinematicBody2D" parent="."]
+position = Vector2( 460.579, 470.569 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BallImage" type="Sprite" parent="Ball"]
+position = Vector2( 52.2504, -18.7479 )
+texture = ExtResource( 2 )
+flip_h = true
+hframes = 22
+vframes = 11
+frame = 203
+
+[node name="BallCollision" type="CollisionPolygon2D" parent="Ball"]
+position = Vector2( 36.2504, -2.74792 )
+polygon = PoolVector2Array( -2.07886, -8.63477, 3.35089, -14.7267, 6.39685, -15.7862, 12.886, -15.7862, 15.932, -14.3294, 20.0374, -9.69424, 20.1699, -1.08612, 15.4023, 4.74094, 13.6807, 5.66797, 4.14545, 5.66797, -0.224792, 1.82742, -1.94641, -1.21854 )
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Ball"]
+stream = ExtResource( 3 )
+
+[node name="Void" type="AudioStreamPlayer2D" parent="Ball"]
+stream = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -1.0
+margin_top = -1.5
+margin_right = 1025.0
+margin_bottom = 601.5
+color = Color( 0.415686, 0.686275, 0.682353, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( 512, -112 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="WallCollision" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( -512, 712, -512, 112, 512, 112, 512, 712, 576, 712, 576, 48, -576, 48, -576, 712 )

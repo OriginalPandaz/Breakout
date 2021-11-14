@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Monkey Warhol - Delay.mp3-c89217c836e94c73098049ca48fd1a24.mp3str"
+
+[deps]
+
+source_file="res://Monkey Warhol - Delay.mp3"
+dest_files=[ "res://.import/Monkey Warhol - Delay.mp3-c89217c836e94c73098049ca48fd1a24.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

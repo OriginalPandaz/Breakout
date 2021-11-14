@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://select1.png" type="Texture" id=1]
+[ext_resource path="res://select2.png" type="Texture" id=2]
+[ext_resource path="res://sample.jpg" type="Texture" id=3]
+[ext_resource path="res://Button1.gd" type="Script" id=4]
+[ext_resource path="res://Breakout.tscn" type="PackedScene" id=5]
+[ext_resource path="res://VariantBreakout.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Select.wav" type="AudioStream" id=7]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Breakout Screen" type="Sprite" parent="."]
+position = Vector2( 522.669, 302.47 )
+scale = Vector2( 1.32738, 1.28319 )
+texture = ExtResource( 3 )
+
+[node name="Select_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -25.0
+
+[node name="Button1" type="Button" parent="."]
+margin_left = 774.579
+margin_top = 213.083
+margin_right = 965.579
+margin_bottom = 263.083
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+start_scene = ExtResource( 5 )
+variant_scene = ExtResource( 6 )
+
+[node name="select1" type="Sprite" parent="Button1"]
+position = Vector2( 95.1284, 24.8968 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 582.8, 51.0598, 190.413, 49.5722 )
+
+[node name="highlightSelect1" type="Sprite" parent="Button1"]
+visible = false
+position = Vector2( 95.5928, 26.6143 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 582.707, 110.87, 190.663, 49.2546 )
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 776.0
+margin_top = 295.0
+margin_right = 966.0
+margin_bottom = 344.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="select2" type="Sprite" parent="Button2"]
+position = Vector2( 95.3795, 24.1228 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 582.66, 51.7268, 190.45, 48.2542 )
+
+[node name="highlightSelect2" type="Sprite" parent="Button2"]
+visible = false
+position = Vector2( 96.7409, 23.7904 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 583.021, 111.326, 190.207, 48.0921 )
+
+[connection signal="mouse_entered" from="Button1" to="Button1" method="defaultMouseEntered"]
+[connection signal="mouse_exited" from="Button1" to="Button1" method="defaultMouseExited"]
+[connection signal="pressed" from="Button1" to="Button1" method="DefaultPressed"]
+[connection signal="mouse_entered" from="Button2" to="Button1" method="variantMouseEntered"]
+[connection signal="mouse_exited" from="Button2" to="Button1" method="variantMouseExited"]
+[connection signal="pressed" from="Button2" to="Button1" method="variantPressed"]
