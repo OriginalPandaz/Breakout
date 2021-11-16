@@ -43,10 +43,11 @@ func _process(delta):
 			else:
 				$"../LivesLabel/Life1".visible = false
 			lives -= 1
-			
 			velocity = Vector2.ZERO
 			started = false
 			position = Vector2(ball_x_pos,ball_y_pos)
 			$"../Paddle".position = Vector2(496,544)
+		elif collided.collider.name.begins_with("Paddle"):
+			$"../Paddle".movement.y = 0
 		if counter == totalHits:
 			velocity = Vector2.ZERO
