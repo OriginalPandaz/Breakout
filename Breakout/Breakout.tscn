@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://preview.png" type="Texture" id=1]
 [ext_resource path="res://Paddle.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Ball.gd" type="Script" id=4]
 [ext_resource path="res://Void.wav" type="AudioStream" id=5]
 [ext_resource path="res://Monkey Warhol - Delay.mp3" type="AudioStream" id=6]
+[ext_resource path="res://TimesNewRoman.tres" type="DynamicFont" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 1.79095, 2.1608, 63.8091, 1.99931, 64.1321, 31.8778, 1.79095, 31.8778 )
@@ -153,6 +154,13 @@ points = PoolVector2Array( 1.79099, 1.7002, 64.4551, 1.7002, 64.4551, 32.3862, 1
 } ]
 5/z_index = 0
 
+[sub_resource type="DynamicFontData" id=14]
+font_path = "res://times new roman.ttf"
+
+[sub_resource type="DynamicFont" id=13]
+size = 50
+font_data = SubResource( 14 )
+
 [node name="Breakout" type="Node2D"]
 
 [node name="Paddle" type="KinematicBody2D" parent="."]
@@ -275,3 +283,31 @@ region_rect = Rect2( 368.24, 93.9639, 49.0541, 48.7547 )
 stream = ExtResource( 6 )
 volume_db = -35.0
 autoplay = true
+
+[node name="Win or Lose" type="Label" parent="."]
+visible = false
+margin_left = 206.0
+margin_top = 325.0
+margin_right = 914.0
+margin_bottom = 502.0
+custom_fonts/font = SubResource( 13 )
+text = "Press ENTER to Play Again!
+or
+Press ESC to go back to Menu!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Label" parent="."]
+margin_left = 297.0
+margin_top = 324.0
+margin_right = 776.0
+margin_bottom = 441.0
+custom_fonts/font = ExtResource( 7 )
+text = "Press Space to Start!
+Destroy all the Bricks!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

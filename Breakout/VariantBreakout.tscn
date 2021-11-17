@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Void.wav" type="AudioStream" id=1]
 [ext_resource path="res://preview.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://Player.gd" type="Script" id=8]
 [ext_resource path="res://Monkey Warhol - Delay.mp3" type="AudioStream" id=9]
+[ext_resource path="res://TimesNewRoman.tres" type="DynamicFont" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 1.79095, 2.1608, 63.8091, 1.99931, 64.1321, 31.8778, 1.79095, 31.8778 )
@@ -159,6 +160,13 @@ points = PoolVector2Array( 1.79099, 1.7002, 64.4551, 1.7002, 64.4551, 32.3862, 1
 [sub_resource type="CircleShape2D" id=8]
 radius = 45.0322
 
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://times new roman.ttf"
+
+[sub_resource type="DynamicFont" id=13]
+size = 50
+font_data = SubResource( 12 )
+
 [node name="VariantBreakout" type="Node2D"]
 
 [node name="Background" type="ColorRect" parent="."]
@@ -293,3 +301,36 @@ offset = Vector2( 7.84094, -69.6412 )
 stream = ExtResource( 9 )
 volume_db = -35.0
 autoplay = true
+
+[node name="Start" type="Label" parent="."]
+margin_left = 312.0
+margin_top = 152.0
+margin_right = 764.0
+margin_bottom = 269.0
+custom_fonts/font = ExtResource( 10 )
+text = "Press Space to Start!
+Reach the Edge!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Win or Lose" type="Label" parent="."]
+visible = false
+margin_left = 192.0
+margin_top = 152.0
+margin_right = 900.0
+margin_bottom = 329.0
+custom_fonts/font = SubResource( 13 )
+text = "Press ENTER to Play Again!
+or
+Press ESC to go back to Menu!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Edge" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Edge"]
+polygon = PoolVector2Array( -24, 632, 1072, 624, 1072, -16, 0, -16, 0, 0, 1056, 0, 1056.12, 612.159, 0.00250244, 611.992, 0, 0, -24, 0 )

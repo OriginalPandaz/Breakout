@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-var SPEED = 450
+var SPEED = 250
 var movement = Vector2(0,0)
+var victory = false
 
 func _process(delta):
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left"):
@@ -21,5 +22,11 @@ func _process(delta):
 		movement.y = SPEED
 	else:
 		movement.y = lerp(movement.y,0,0.2)
-		
+	
+	var collided = move_and_collide(movement * delta)
+	if collided:
+		if collided.collider.name.begins_with("Edge"):
+			victory = true
+			print("EXITED")
+	
 	move_and_slide(movement)

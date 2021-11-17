@@ -6,10 +6,8 @@ extends KinematicBody2D
 
 var velocity = Vector2.ZERO
 var started = false
-var ball_x_pos = 460.5
-var ball_y_pos = 470.5
-var totalHits = 84
-var counter = 0
+var ball_x_pos = 378.078
+var ball_y_pos = 281.434
 var score = 0
 var lives = 3
 var canDestroyBrick = false
@@ -19,12 +17,13 @@ func _ready():
 	$"BallImage2".hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("ui_select") and started == false:
+	if Input.is_action_pressed("ui_select") and started == false and lives > 0:
 		randomize()
 		velocity.x = [-1,1][randi() % 2] * 250
 		velocity.y = 400
 		started = true
-		
+		$"../Start".visible = false
+	
 	var collided = move_and_collide(velocity * delta)
 	
 	if collided:
@@ -35,28 +34,14 @@ func _process(delta):
 			if canDestroyBrick:
 				var tile = $"../Bricks".world_to_map(collided.position)
 				$"../Bricks".set_cell(tile.x,tile.y,-1)
-				counter += 1
 				canDestroyBrick = false
 				$"BallImage2".hide()
 				score += randi() % 500
-		elif collided.collider.name.begins_with("Void"):
-			$Void.play()
-			if lives == 3:
-				$"../LivesLabel/Life3".visible = false
-			elif lives == 2:
-				$"../LivesLabel/Life2".visible = false
-			else:
-				$"../LivesLabel/Life1".visible = false
-			lives -= 1
-			velocity = Vector2.ZERO
-			started = false
-			position = Vector2(ball_x_pos,ball_y_pos)
-			$"../Player".position = Vector2(496,544)
-		elif collided.collider.name.begins_with("Paddle2"):
+		elif collided.collider.name.begins_with("Paddle2") and started == true:
 			$"../Player".movement.y = 0
 			canDestroyBrick = true
 			$"BallImage2".show()
-		elif collided.collider.name.begins_with("Player"):
+		elif collided.collider.name.begins_with("Player") and started == true:
 			$Void.play()
 			if lives == 3:
 				$"../LivesLabel/Life3".visible = false
@@ -65,5 +50,17 @@ func _process(delta):
 			else:
 				$"../LivesLabel/Life1".visible = false
 			lives -= 1
-		if counter == totalHits:
+			position.x = ball_x_pos
+			position.y = ball_y_pos
 			velocity = Vector2.ZERO
+			started = false
+	if lives == 0 || $"../Player".victory:
+		$"../Win or Lose".visible = true
+		restart_game()
+		
+
+func restart_game():
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://Menu.tscn")
+	if Input.is_action_pressed("ui_accept"):
+		get_tree().change_scene("res://VariantBreakout.tscn")

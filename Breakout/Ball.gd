@@ -17,11 +17,13 @@ var lives = 3
 #func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("ui_select") and started == false:
+	
+	if Input.is_action_pressed("ui_select") and started == false and lives > 0:
 		randomize()
 		velocity.x = [-1,1][randi() % 2] * 250
 		velocity.y = 400
 		started = true
+		$"../Start".visible = false
 		
 	var collided = move_and_collide(velocity * delta)
 	
@@ -49,5 +51,14 @@ func _process(delta):
 			$"../Paddle".position = Vector2(496,544)
 		elif collided.collider.name.begins_with("Paddle"):
 			$"../Paddle".movement.y = 0
-		if counter == totalHits:
-			velocity = Vector2.ZERO
+	if counter == totalHits or lives == 0:
+		$"../Paddle".x_speed = 0
+		velocity = Vector2.ZERO
+		$"../Win or Lose".visible = true
+		restart_game()
+
+func restart_game():
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://Menu.tscn")
+	if Input.is_action_pressed("ui_accept"):
+		get_tree().change_scene("res://Breakout.tscn")
