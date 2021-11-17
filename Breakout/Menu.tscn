@@ -11,8 +11,8 @@
 [node name="Menu" type="Node2D"]
 
 [node name="Breakout Screen" type="Sprite" parent="."]
-position = Vector2( 522.669, 302.47 )
-scale = Vector2( 1.32738, 1.28319 )
+position = Vector2( 527.714, 305.495 )
+scale = Vector2( 1.34123, 1.30615 )
 texture = ExtResource( 3 )
 
 [node name="Select_Sound" type="AudioStreamPlayer" parent="."]
