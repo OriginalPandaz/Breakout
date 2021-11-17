@@ -1,9 +1,7 @@
 extends Button
 
-export(PackedScene) var start_scene
-
 func returnPressed():
-	get_tree().get_root()
+	get_tree().change_scene("res://Menu.tscn")
 	
 func returnMouseEntered():
 	$"../Select_Sound".play()

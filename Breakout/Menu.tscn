@@ -72,7 +72,6 @@ region_enabled = true
 region_rect = Rect2( 583.105, 110.95, 190.193, 48.2798 )
 
 [node name="Controls" type="Button" parent="."]
-visible = false
 margin_left = 779.336
 margin_top = 376.004
 margin_right = 967.336

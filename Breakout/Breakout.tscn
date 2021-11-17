@@ -234,8 +234,8 @@ __meta__ = {
 }
 
 [node name="ScoreLabel" type="Label" parent="."]
-margin_right = 160.0
-margin_bottom = 24.0
+margin_right = 48.0
+margin_bottom = 17.0
 text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -247,7 +247,6 @@ margin_right = 1008.0
 margin_bottom = 32.0
 text = "Lives:"
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 

@@ -31,7 +31,6 @@ func _process(delta):
 		velocity = velocity.bounce(collided.normal);
 		if collided.collider.name.begins_with("Brick"):
 			$Hit.play()
-			score += randi() % 500
 			$"../ScoreLabel".text = "Score: " + str(score)
 			if canDestroyBrick:
 				var tile = $"../Bricks".world_to_map(collided.position)
@@ -39,6 +38,7 @@ func _process(delta):
 				counter += 1
 				canDestroyBrick = false
 				$"BallImage2".hide()
+				score += randi() % 500
 		elif collided.collider.name.begins_with("Void"):
 			$Void.play()
 			if lives == 3:
