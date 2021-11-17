@@ -242,11 +242,12 @@ __meta__ = {
 }
 
 [node name="LivesLabel" type="Label" parent="."]
-margin_left = 960.0
-margin_right = 1000.0
+margin_left = 968.0
+margin_right = 1008.0
 margin_bottom = 32.0
 text = "Lives:"
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 

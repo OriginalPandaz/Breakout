@@ -1,6 +1,7 @@
 extends Button
 export(PackedScene) var start_scene
 export(PackedScene) var variant_scene
+export(PackedScene) var controls_scene
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,7 +17,7 @@ func _ready():
 #	pass
 
 
-func DefaultPressed():
+func defaultPressed():
 	get_tree().change_scene_to(start_scene)
 
 
@@ -35,8 +36,20 @@ func variantPressed():
 
 func variantMouseEntered():
 	$"../Select_Sound".play()
-	$"../Button2/highlightSelect2".visible = true
+	$"../Start 2/highlightSelect2".visible = true
 
 
 func variantMouseExited():
-	$"../Button2/highlightSelect2".visible = false
+	$"../Start 2/highlightSelect2".visible = false
+
+func controlsPressed():
+	get_tree().change_scene_to(controls_scene)
+
+func controlsMouseEntered():
+	$"../Select_Sound".play()
+	$"../Controls/highlightControls".visible = true
+
+
+func controlsMouseExited():
+	$"../Controls/highlightControls".visible = false
+

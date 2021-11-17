@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ReturnButton.gd" type="Script" id=1]
+[ext_resource path="res://Select.wav" type="AudioStream" id=2]
+[ext_resource path="res://returnButton.png" type="Texture" id=3]
+
+[node name="Controls" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_right = 1056.0
+margin_bottom = 612.0
+color = Color( 0.117647, 0.32549, 0.321569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Breakout Controls" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 128.0
+margin_right = 187.0
+margin_bottom = 210.0
+rect_scale = Vector2( 2.5, 2.5 )
+text = "Breakout Controls
+
+Left: A or Left Arrow Key
+
+Right: D or Right Arrow Key"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 416.0
+margin_right = 469.0
+margin_bottom = 14.0
+rect_scale = Vector2( 5, 5 )
+text = "Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Variant Controls" type="Label" parent="."]
+margin_left = 600.0
+margin_top = 128.0
+margin_right = 776.0
+margin_bottom = 278.0
+rect_scale = Vector2( 2.5, 2.5 )
+text = "Variant Controls
+
+Left: A or Left Arrow Key
+
+Right: D or Right Arrow Key
+
+Up: W or Up Arrow Key
+
+Down: S or Down Arrow Key"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnButton" type="Button" parent="."]
+margin_left = 464.0
+margin_top = 536.0
+margin_right = 656.0
+margin_bottom = 584.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="returnButton" type="Sprite" parent="ReturnButton"]
+position = Vector2( 96, 24 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 9.90125, 4.75105, 190.374, 49.0409 )
+
+[node name="highlightReturn" type="Sprite" parent="ReturnButton"]
+visible = false
+position = Vector2( 96, 24 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 10.1278, 64.8882, 189.998, 49.1048 )
+
+[node name="Select_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -25.0
+
+[connection signal="mouse_entered" from="ReturnButton" to="ReturnButton" method="returnMouseEntered"]
+[connection signal="mouse_exited" from="ReturnButton" to="ReturnButton" method="returnMouseExited"]
+[connection signal="pressed" from="ReturnButton" to="ReturnButton" method="returnPressed"]
