@@ -56,6 +56,7 @@ func _process(delta):
 	else:
 		$"../Player/Position2D".collided = false
 	if lives == 0 || $"../Player".victory:
+		velocity = Vector2.ZERO
 		$"../Win or Lose".visible = true
 		restart_game()
 		
