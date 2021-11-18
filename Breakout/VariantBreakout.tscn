@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Void.wav" type="AudioStream" id=1]
 [ext_resource path="res://preview.png" type="Texture" id=2]
@@ -157,15 +157,12 @@ points = PoolVector2Array( 1.79099, 1.7002, 64.4551, 1.7002, 64.4551, 32.3862, 1
 } ]
 5/z_index = 0
 
-[sub_resource type="CircleShape2D" id=8]
-radius = 45.0322
-
-[sub_resource type="DynamicFontData" id=12]
+[sub_resource type="DynamicFontData" id=8]
 font_path = "res://times new roman.ttf"
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=9]
 size = 50
-font_data = SubResource( 12 )
+font_data = SubResource( 8 )
 
 [node name="VariantBreakout" type="Node2D"]
 
@@ -286,10 +283,13 @@ position = Vector2( -11.137, -43.4871 )
 collision_layer = 2
 collision_mask = 8
 
-[node name="PaddleCollision" type="CollisionShape2D" parent="Player/Position2D/Paddle2"]
+[node name="PaddleCollision" type="CollisionPolygon2D" parent="Player/Position2D/Paddle2"]
 position = Vector2( 10.0081, 13.5297 )
 scale = Vector2( 1, 0.35 )
-shape = SubResource( 8 )
+polygon = PoolVector2Array( -34.0081, 29.9155, -34.0081, -38.656, 37.9919, -38.656, 37.9919, 29.9155 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="PaddleImage" type="Sprite" parent="Player/Position2D/Paddle2"]
 position = Vector2( 11.5865, 41.9584 )
@@ -321,7 +321,7 @@ margin_left = 192.0
 margin_top = 152.0
 margin_right = 900.0
 margin_bottom = 329.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 9 )
 text = "Press ENTER to Play Again!
 or
 Press ESC to go back to Menu!"

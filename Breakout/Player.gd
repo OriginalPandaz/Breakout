@@ -27,6 +27,5 @@ func _process(delta):
 	if collided:
 		if collided.collider.name.begins_with("Edge"):
 			victory = true
-			print("EXITED")
 	
 	move_and_slide(movement)
