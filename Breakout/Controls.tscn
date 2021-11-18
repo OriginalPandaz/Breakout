@@ -5,16 +5,16 @@
 [ext_resource path="res://returnButton.png" type="Texture" id=3]
 [ext_resource path="res://TimesNewRoman.tres" type="DynamicFont" id=4]
 
-[sub_resource type="DynamicFontData" id=12]
+[sub_resource type="DynamicFontData" id=1]
 font_path = "res://times new roman.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 34
-font_data = SubResource( 12 )
+font_data = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 34
-font_data = SubResource( 12 )
+font_data = SubResource( 1 )
 
 [node name="Controls" type="Node2D"]
 

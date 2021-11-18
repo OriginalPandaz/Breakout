@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Void.wav" type="AudioStream" id=1]
 [ext_resource path="res://preview.png" type="Texture" id=2]
@@ -6,10 +6,13 @@
 [ext_resource path="res://Ball2.gd" type="Script" id=4]
 [ext_resource path="res://Position2D.gd" type="Script" id=5]
 [ext_resource path="res://newPaddle.png" type="Texture" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://player.png" type="Texture" id=7]
 [ext_resource path="res://Player.gd" type="Script" id=8]
 [ext_resource path="res://Monkey Warhol - Delay.mp3" type="AudioStream" id=9]
 [ext_resource path="res://TimesNewRoman.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Damaged.wav" type="AudioStream" id=11]
+[ext_resource path="res://Paddle.wav" type="AudioStream" id=12]
+[ext_resource path="res://Break.wav" type="AudioStream" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 1.79095, 2.1608, 63.8091, 1.99931, 64.1321, 31.8778, 1.79095, 31.8778 )
@@ -220,6 +223,18 @@ hframes = 22
 vframes = 11
 frame = 204
 
+[node name="PaddleHit" type="AudioStreamPlayer2D" parent="Ball2"]
+stream = ExtResource( 12 )
+volume_db = -5.0
+
+[node name="Break" type="AudioStreamPlayer2D" parent="Ball2"]
+stream = ExtResource( 13 )
+volume_db = -5.0
+
+[node name="Damaged" type="AudioStreamPlayer2D" parent="Ball2"]
+stream = ExtResource( 11 )
+volume_db = -20.0
+
 [node name="ScoreLabel" type="Label" parent="."]
 margin_right = 160.0
 margin_bottom = 24.0
@@ -262,9 +277,6 @@ region_rect = Rect2( 368.24, 93.9639, 49.0541, 48.7547 )
 [node name="Player" type="KinematicBody2D" parent="."]
 collision_mask = 12
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="PlayerImage" type="Sprite" parent="Player"]
 position = Vector2( 523.269, 305.871 )
@@ -272,6 +284,8 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="PlayerCollision" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( 73.4945, 50.4656 )
+scale = Vector2( 0.858601, 0.83101 )
 polygon = PoolVector2Array( 512, 296, 536, 296, 536, 320, 512, 320 )
 
 [node name="Position2D" type="Position2D" parent="Player"]

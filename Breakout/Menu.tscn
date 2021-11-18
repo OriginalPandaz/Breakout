@@ -72,10 +72,10 @@ region_enabled = true
 region_rect = Rect2( 583.105, 110.95, 190.193, 48.2798 )
 
 [node name="Controls" type="Button" parent="."]
-margin_left = 779.336
-margin_top = 376.004
-margin_right = 967.336
-margin_bottom = 426.004
+margin_left = 776.0
+margin_top = 377.0
+margin_right = 964.0
+margin_bottom = 427.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false

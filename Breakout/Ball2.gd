@@ -29,19 +29,21 @@ func _process(delta):
 			$Hit.play()
 			$"../ScoreLabel".text = "Score: " + str(score)
 			if canDestroyBrick:
+				$Break.play()
 				var tile = $"../Bricks".world_to_map(collided.position)
 				$"../Bricks".set_cell(tile.x,tile.y,-1)
 				canDestroyBrick = false
 				$"BallImage2".hide()
 				score += randi() % 500
 		elif collided.collider.name.begins_with("Paddle2") and started == true:
+			$PaddleHit.play()
 			$"../Player".movement.y = 0
 			$"../Player".movement.x = 0
 			canDestroyBrick = true
 			$"BallImage2".show()
 			$"../Player/Position2D".collided = true
 		elif collided.collider.name.begins_with("Player") and started == true:
-			$Void.play()
+			$Damaged.play()
 			if lives == 3:
 				$"../LivesLabel/Life3".visible = false
 			elif lives == 2:
