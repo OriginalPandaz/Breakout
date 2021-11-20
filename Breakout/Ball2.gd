@@ -25,7 +25,7 @@ func _process(delta):
 	
 	if collided:
 		velocity = velocity.bounce(collided.normal);
-		if collided.collider.name.begins_with("Brick"):
+		if collided.collider.name.begins_with("Brick") and started == true:
 			$Hit.play()
 			$"../ScoreLabel".text = "Score: " + str(score)
 			if canDestroyBrick:
@@ -55,6 +55,7 @@ func _process(delta):
 			position.y = ball_y_pos
 			velocity = Vector2.ZERO
 			started = false
+			canDestroyBrick = false
 	else:
 		$"../Player/Position2D".collided = false
 	if lives == 0 || $"../Player".victory:

@@ -2,12 +2,13 @@ extends KinematicBody2D
 
 var velocity = Vector2.ZERO
 var started = false
-var ball_x_pos = 460.5
-var ball_y_pos = 470.5
-var totalHits = 84
+var ball_x_pos = 505
+var ball_y_pos = 462
+var totalHits = 96
 var counter = 0
 var score = 0
 var lives = 3
+var paddleHit = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,6 +19,7 @@ func _process(delta):
 		velocity.y = 400
 		started = true
 		$"../Start".visible = false
+		$BallTrail.visible = true
 		
 	var collided = move_and_collide(velocity * delta)
 	
@@ -43,8 +45,15 @@ func _process(delta):
 			started = false
 			position = Vector2(ball_x_pos,ball_y_pos)
 			$"../Paddle".position = Vector2(496,544)
+			$BallTrail.visible = false
 		elif collided.collider.name.begins_with("Paddle"):
 			$"../Paddle".movement.y = 0
+			if paddleHit == false:
+				$"../Paddle/BluePaddleImage".show()
+				paddleHit = true
+			else:
+				$"../Paddle/BluePaddleImage".hide()
+				paddleHit = false
 	if counter == totalHits or lives == 0:
 		$"../Paddle".x_speed = 0
 		velocity = Vector2.ZERO

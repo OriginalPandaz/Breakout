@@ -9,11 +9,11 @@ func defaultPressed():
 
 func defaultMouseEntered():
 	$"../Select_Sound".play()
-	$highlightSelect1.visible = true
+	$highlightBreakout.visible = true
 
 
 func defaultMouseExited():
-	$highlightSelect1.visible = false
+	$highlightBreakout.visible = false
 
 
 func variantPressed():
@@ -22,11 +22,11 @@ func variantPressed():
 
 func variantMouseEntered():
 	$"../Select_Sound".play()
-	$"../Start 2/highlightSelect2".visible = true
+	$"../Start 2/highlightVariant".visible = true
 
 
 func variantMouseExited():
-	$"../Start 2/highlightSelect2".visible = false
+	$"../Start 2/highlightVariant".visible = false
 
 func controlsPressed():
 	get_tree().change_scene_to(controls_scene)
