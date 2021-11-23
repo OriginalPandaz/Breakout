@@ -35,15 +35,17 @@ func _process(delta):
 				canDestroyBrick = false
 				$"BallImage2".hide()
 				score += randi() % 500
-		elif collided.collider.name.begins_with("Paddle2") and started == true:
+				$"../Bricks/FadeBlocks".play("Blocks Flash")
+		if collided.collider.name.begins_with("Paddle2") and started == true:
 			$PaddleHit.play()
 			$"../Player".movement.y = 0
 			$"../Player".movement.x = 0
 			canDestroyBrick = true
 			$"BallImage2".show()
 			$"../Player/Position2D".collided = true
-		elif collided.collider.name.begins_with("Player") and started == true:
+		if collided.collider.name.begins_with("Player") and started == true:
 			$Damaged.play()
+			$"BallImage2".hide()
 			if lives == 3:
 				$"../LivesLabel/Life3".visible = false
 			elif lives == 2:
@@ -59,6 +61,7 @@ func _process(delta):
 	else:
 		$"../Player/Position2D".collided = false
 	if lives == 0 || $"../Player".victory:
+		$"../Player".SPEED = 0
 		velocity = Vector2.ZERO
 		$"../Win or Lose".visible = true
 		restart_game()

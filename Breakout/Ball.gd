@@ -8,7 +8,6 @@ var totalHits = 96
 var counter = 0
 var score = 0
 var lives = 3
-var paddleHit = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,6 +29,7 @@ func _process(delta):
 			score += randi() % 500
 			$"../ScoreLabel".text = "Score: " + str(score)
 			var tile = $"../Bricks".world_to_map(collided.position)
+			$"../Bricks/FadeBlocks".play("Block Fade")
 			$"../Bricks".set_cell(tile.x,tile.y,-1)
 			counter += 1
 		elif collided.collider.name.begins_with("Void"):
@@ -48,12 +48,6 @@ func _process(delta):
 			$BallTrail.visible = false
 		elif collided.collider.name.begins_with("Paddle"):
 			$"../Paddle".movement.y = 0
-			if paddleHit == false:
-				$"../Paddle/BluePaddleImage".show()
-				paddleHit = true
-			else:
-				$"../Paddle/BluePaddleImage".hide()
-				paddleHit = false
 	if counter == totalHits or lives == 0:
 		$"../Paddle".x_speed = 0
 		velocity = Vector2.ZERO
