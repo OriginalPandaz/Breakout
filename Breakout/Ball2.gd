@@ -20,7 +20,8 @@ func _process(delta):
 		velocity.y = 400
 		started = true
 		$"../Start".visible = false
-	
+		$"../Ready".visible = false
+		
 	var collided = move_and_collide(velocity * delta)
 	
 	if collided:
@@ -58,12 +59,14 @@ func _process(delta):
 			velocity = Vector2.ZERO
 			started = false
 			canDestroyBrick = false
+			$"../Ready".visible = true
 	else:
 		$"../Player/Position2D".collided = false
 	if lives == 0 || $"../Player".victory:
 		$"../Player".SPEED = 0
 		velocity = Vector2.ZERO
 		$"../Win or Lose".visible = true
+		$"../Ready".visible = false
 		restart_game()
 		
 
