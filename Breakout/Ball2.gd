@@ -7,6 +7,7 @@ var ball_y_pos = 281.434
 var score = 0
 var lives = 3
 var canDestroyBrick = false
+onready var Explosion = $"../Explosion"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +38,8 @@ func _process(delta):
 				$"BallImage2".hide()
 				score += randi() % 500
 				$"../Bricks/FadeBlocks".play("Blocks Flash")
+				Explosion.global_position = collided.position
+				Explosion.emitting = true
 		if collided.collider.name.begins_with("Paddle2") and started == true:
 			$PaddleHit.play()
 			$"../Player".movement.y = 0

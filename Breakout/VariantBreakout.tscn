@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Void.wav" type="AudioStream" id=1]
 [ext_resource path="res://preview.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Paddle.wav" type="AudioStream" id=12]
 [ext_resource path="res://Break.wav" type="AudioStream" id=13]
 [ext_resource path="res://Trail.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Explosion.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 1.79095, 2.1608, 63.8091, 1.99931, 64.1321, 31.8778, 1.79095, 31.8778 )
@@ -188,6 +189,9 @@ font_path = "res://times new roman.ttf"
 size = 50
 font_data = SubResource( 10 )
 
+[sub_resource type="Gradient" id=12]
+colors = PoolColorArray( 0.957031, 0.0485992, 0.0485992, 1, 0.128906, 0.0740519, 0.00352478, 1 )
+
 [node name="VariantBreakout" type="Node2D"]
 
 [node name="Background" type="ColorRect" parent="."]
@@ -361,10 +365,10 @@ Are Ready!"
 align = 1
 
 [node name="Start" type="Label" parent="."]
-margin_left = 229.0
-margin_top = 185.0
-margin_right = 826.0
-margin_bottom = 422.0
+margin_left = 231.523
+margin_top = 166.5
+margin_right = 828.523
+margin_bottom = 463.5
 custom_fonts/font = ExtResource( 10 )
 text = "Press Space to Start!
 
@@ -395,3 +399,6 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Edge"]
 polygon = PoolVector2Array( -24, 632, 1072, 624, 1072, -16, 0, -16, 0, 0, 1056, 0, 1056.12, 612.159, 0.00250244, 611.992, 0, 0, -24, 0 )
+
+[node name="Explosion" parent="." instance=ExtResource( 15 )]
+color_ramp = SubResource( 12 )
