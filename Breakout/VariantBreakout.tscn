@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Void.wav" type="AudioStream" id=1]
 [ext_resource path="res://preview.png" type="Texture" id=2]
@@ -183,14 +183,7 @@ tracks/0/keys = {
 offsets = PoolRealArray( 1.17198e-11, 0.304189, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1 )
 
-[sub_resource type="DynamicFontData" id=10]
-font_path = "res://times new roman.ttf"
-
-[sub_resource type="DynamicFont" id=11]
-size = 50
-font_data = SubResource( 10 )
-
-[sub_resource type="Gradient" id=12]
+[sub_resource type="Gradient" id=10]
 colors = PoolColorArray( 0.957031, 0.0485992, 0.0485992, 1, 0.128906, 0.0740519, 0.00352478, 1 )
 
 [node name="VariantBreakout" type="Node2D"]
@@ -356,22 +349,26 @@ autoplay = true
 
 [node name="Ready" type="Label" parent="."]
 visible = false
-margin_left = 226.445
-margin_top = 269.45
-margin_right = 823.445
-margin_bottom = 506.45
+margin_left = 377.597
+margin_top = 182.487
+margin_right = 677.597
+margin_bottom = 253.487
 custom_fonts/font = ExtResource( 10 )
 text = "Press Space When You
 Are Ready!"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Start" type="Label" parent="."]
-margin_left = 231.523
-margin_top = 166.5
-margin_right = 828.523
-margin_bottom = 463.5
+margin_left = 370.803
+margin_top = 214.825
+margin_right = 695.803
+margin_bottom = 421.825
 custom_fonts/font = ExtResource( 10 )
 text = "Press Space to Start!
+
 
 Break the blocks,
 Bounce the ball to the edge,
@@ -383,11 +380,11 @@ __meta__ = {
 
 [node name="Win or Lose" type="Label" parent="."]
 visible = false
-margin_left = 192.0
-margin_top = 152.0
-margin_right = 900.0
-margin_bottom = 329.0
-custom_fonts/font = SubResource( 11 )
+margin_left = 344.43
+margin_top = 168.444
+margin_right = 713.43
+margin_bottom = 270.444
+custom_fonts/font = ExtResource( 10 )
 text = "Press ENTER to Play Again!
 or
 Press ESC to go back to Menu!"
@@ -402,7 +399,7 @@ __meta__ = {
 polygon = PoolVector2Array( -24, 632, 1072, 624, 1072, -16, 0, -16, 0, 0, 1056, 0, 1056.12, 612.159, 0.00250244, 611.992, 0, 0, -24, 0 )
 
 [node name="Explosion" parent="." instance=ExtResource( 15 )]
-color_ramp = SubResource( 12 )
+color_ramp = SubResource( 10 )
 
 [node name="Damaged" parent="." instance=ExtResource( 16 )]
 position = Vector2( 523.132, 307.421 )
