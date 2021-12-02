@@ -8,6 +8,7 @@ var score = 0
 var lives = 3
 var canDestroyBrick = false
 onready var Explosion = $"../Explosion"
+onready var Damaged = $"../Damaged"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,6 +51,8 @@ func _process(delta):
 		if collided.collider.name.begins_with("Player") and started == true:
 			$Damaged.play()
 			$"BallImage2".hide()
+			Damaged.global_position = $"../Player".position
+			Damaged.emitting = true
 			if lives == 3:
 				$"../LivesLabel/Life3".visible = false
 			elif lives == 2:

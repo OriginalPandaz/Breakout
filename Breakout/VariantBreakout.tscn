@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Void.wav" type="AudioStream" id=1]
 [ext_resource path="res://preview.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Break.wav" type="AudioStream" id=13]
 [ext_resource path="res://Trail.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Explosion.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Damaged.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 1.79095, 2.1608, 63.8091, 1.99931, 64.1321, 31.8778, 1.79095, 31.8778 )
@@ -272,6 +273,43 @@ default_color = Color( 0.4, 0.501961, 1, 1 )
 gradient = SubResource( 9 )
 targetPath = NodePath("..")
 
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 523.269, 305.871 )
+collision_mask = 12
+script = ExtResource( 8 )
+
+[node name="PlayerImage" type="Sprite" parent="Player"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="PlayerCollision" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( -449.774, -255.405 )
+scale = Vector2( 0.858601, 0.83101 )
+polygon = PoolVector2Array( 512, 296, 536, 296, 536, 320, 512, 320 )
+
+[node name="Position2D" type="Position2D" parent="Player"]
+position = Vector2( -0.131958, 1.616 )
+script = ExtResource( 5 )
+
+[node name="Paddle2" type="KinematicBody2D" parent="Player/Position2D"]
+position = Vector2( -11.137, -43.4871 )
+collision_layer = 2
+collision_mask = 8
+
+[node name="PaddleCollision" type="CollisionPolygon2D" parent="Player/Position2D/Paddle2"]
+position = Vector2( 10.0081, 13.5297 )
+scale = Vector2( 1, 0.35 )
+polygon = PoolVector2Array( -34.0081, 29.9155, -34.0081, -38.656, 37.9919, -38.656, 37.9919, 29.9155 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PaddleImage" type="Sprite" parent="Player/Position2D/Paddle2"]
+position = Vector2( 11.5865, 41.9584 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+offset = Vector2( 7.84094, -69.6412 )
+
 [node name="ScoreLabel" type="Label" parent="."]
 margin_right = 160.0
 margin_bottom = 24.0
@@ -310,43 +348,6 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 368.24, 93.9639, 49.0541, 48.7547 )
-
-[node name="Player" type="KinematicBody2D" parent="."]
-collision_mask = 12
-script = ExtResource( 8 )
-
-[node name="PlayerImage" type="Sprite" parent="Player"]
-position = Vector2( 523.269, 305.871 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 7 )
-
-[node name="PlayerCollision" type="CollisionPolygon2D" parent="Player"]
-position = Vector2( 73.4945, 50.4656 )
-scale = Vector2( 0.858601, 0.83101 )
-polygon = PoolVector2Array( 512, 296, 536, 296, 536, 320, 512, 320 )
-
-[node name="Position2D" type="Position2D" parent="Player"]
-position = Vector2( 523.137, 307.487 )
-script = ExtResource( 5 )
-
-[node name="Paddle2" type="KinematicBody2D" parent="Player/Position2D"]
-position = Vector2( -11.137, -43.4871 )
-collision_layer = 2
-collision_mask = 8
-
-[node name="PaddleCollision" type="CollisionPolygon2D" parent="Player/Position2D/Paddle2"]
-position = Vector2( 10.0081, 13.5297 )
-scale = Vector2( 1, 0.35 )
-polygon = PoolVector2Array( -34.0081, 29.9155, -34.0081, -38.656, 37.9919, -38.656, 37.9919, 29.9155 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PaddleImage" type="Sprite" parent="Player/Position2D/Paddle2"]
-position = Vector2( 11.5865, 41.9584 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
-offset = Vector2( 7.84094, -69.6412 )
 
 [node name="Background Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
@@ -402,3 +403,6 @@ polygon = PoolVector2Array( -24, 632, 1072, 624, 1072, -16, 0, -16, 0, 0, 1056, 
 
 [node name="Explosion" parent="." instance=ExtResource( 15 )]
 color_ramp = SubResource( 12 )
+
+[node name="Damaged" parent="." instance=ExtResource( 16 )]
+position = Vector2( 523.132, 307.421 )
