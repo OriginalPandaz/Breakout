@@ -362,16 +362,16 @@ __meta__ = {
 }
 
 [node name="Start" type="Label" parent="."]
-margin_left = 370.803
-margin_top = 214.825
-margin_right = 695.803
-margin_bottom = 421.825
+margin_left = 375.923
+margin_top = 210.175
+margin_right = 684.923
+margin_bottom = 417.175
 custom_fonts/font = ExtResource( 10 )
 text = "Press Space to Start!
 
 
 Break the blocks,
-Bounce the ball to the edge,
+Bring the core to the edge,
 And protect your core!"
 align = 1
 __meta__ = {
