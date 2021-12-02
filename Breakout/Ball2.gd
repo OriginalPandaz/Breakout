@@ -41,14 +41,14 @@ func _process(delta):
 				$"../Bricks/FadeBlocks".play("Blocks Flash")
 				Explosion.global_position = collided.position
 				Explosion.emitting = true
-		if collided.collider.name.begins_with("Paddle2") and started == true:
+		elif collided.collider.name.begins_with("Paddle2") and started == true and canDestroyBrick == false:
 			$PaddleHit.play()
 			$"../Player".movement.y = 0
 			$"../Player".movement.x = 0
 			canDestroyBrick = true
 			$"BallImage2".show()
 			$"../Player/Position2D".collided = true
-		if collided.collider.name.begins_with("Player") and started == true:
+		elif collided.collider.name.begins_with("Player") and started == true:
 			$Damaged.play()
 			$"BallImage2".hide()
 			Damaged.global_position = $"../Player".position
